@@ -1,5 +1,46 @@
 package unilim.info.ihm.tp6.exo1;
 
-public class DndTextRectangle {
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import unilim.info.ihm.tp6.exo1.controller.DndTextController;
 
+public class DndTextRectangle extends Application {
+
+    @Override
+    public void start(javafx.stage.Stage primaryStage) throws Exception {
+
+        Group root = new Group();
+
+        Text sourceText = new Text("DRAG ME");
+        sourceText.setX(50);
+        sourceText.setY(50);
+
+        Text targetText = new Text("DROP HERE");
+        targetText.setX(300);
+        targetText.setY(50);
+
+        // Ajout des textes au groupe racine
+        root.getChildren().addAll(sourceText, targetText);
+
+        // Configuration de la scène et de la fenêtre
+        Scene scene = new Scene(root, 400, 100);
+        scene.setFill(Color.LIGHTGREEN);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Etude du de drag and drop");
+        primaryStage.show();
+
+        // Gestion du Drag and Drop
+        DndTextController.manageSourceDragAndDrop(sourceText);
+        DndTextController.manageTargetDragAndDrop(targetText);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+	
 }
+
