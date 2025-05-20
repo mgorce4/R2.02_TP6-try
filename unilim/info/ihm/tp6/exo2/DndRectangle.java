@@ -1,5 +1,6 @@
 package unilim.info.ihm.tp6.exo2;
 
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
