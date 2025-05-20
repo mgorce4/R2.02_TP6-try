@@ -1,9 +1,7 @@
-package unilim.info.ihm.tp6.exo3.view;
+package unilim.info.ihm.tp6.exo3.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
-
-import unilim.info.ihm.tp6.exo3.model.Card;
 
 public class Deck {
 
