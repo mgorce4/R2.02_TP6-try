@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 
 public class CardGameTools {
 
-    private static final String IMAGE_PATH = "src/unilim/info/ihm/tp6/exo3/ressources/";
+    private static final String IMAGE_PATH = "/unilim/info/ihm/tp6/exo3/ressources/";
 
     public static int generateCardValue() {
         return (int) (Math.random() * 12) + 1;
@@ -17,6 +17,8 @@ public class CardGameTools {
         } else {
             imageName = Integer.toString(value) + ".png";
         }
-        return new Image(IMAGE_PATH + imageName);
+
+        // Chargement via getResource, pour avoir une URL correcte
+        return new Image(CardGameTools.class.getResourceAsStream(IMAGE_PATH + imageName));
     }
 }

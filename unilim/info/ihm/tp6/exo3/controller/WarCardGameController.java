@@ -52,6 +52,34 @@ public class WarCardGameController {
     
     @FXML
     void initialize() {
+    	//initialiser 
+    	//initialiser carte de l'adversaire(imageView du Pane) avec valeur aléatoire et ajouter écouteurs car cible dnd
+    	int cardValue = CardGameTools.generateCardValue();
+    	ImageView cardImage = new ImageView(CardGameTools.loadCardImage(cardValue));
+    	cardImage.setFitHeight(100);
+    	cardImage.setFitWidth(70);
+    	idCardToBeat.getChildren().add(cardImage);
+    	
+    	//initialiser les 5 cartes du deck (même traitement que méthode changer()) avec méthode for each et avec ecouteurs d'evenements car source drag
+    	for (int i = 0; i < 5; i++) {
+    		ImageView cardImageView = new ImageView(CardGameTools.loadCardImage(CardGameTools.generateCardValue()));
+    		cardImageView.setFitHeight(100);
+    		cardImageView.setFitWidth(70);
+    		idDeck.getChildren().add(cardImageView);
+    		cardImageView.setOnMouseClicked(event -> {
+    			// Afficher la carte sélectionnée
+    			idCardToBeat.getChildren().clear();
+    			ImageView selectedCardImage = new ImageView(CardGameTools.loadCardImage(cardValue));
+    			selectedCardImage.setFitHeight(100);
+    			selectedCardImage.setFitWidth(70);
+    			idCardToBeat.getChildren().add(selectedCardImage);
+    		}
+    		);
+    		
+    	}
+    	
+    	
+    	
     }
 
 }
